@@ -14,17 +14,26 @@ class Solution {
             return l2;
         if(l2==null)
             return l1;
-        ListNode p;
+        ListNode r=new ListNode(0);
+        ListNode p=r;
+        while(l1!=null && l2!=null)
+        {
             if(l1.val<=l2.val)
             {
-                p=l1;
-                p.next=mergeTwoLists(l1.next,l2);
+                p.next=l1;
+                l1=l1.next;
             }
             else
             {
-                p=l2;
-                p.next=mergeTwoLists(l1,l2.next);
+                p.next=l2;
+                l2=l2.next;
             }
-        return p;
+            p=p.next;
+        }
+        if(l1!=null)
+            p.next=l1;
+        if(l2!=null)
+            p.next=l2;
+        return r.next;
     }
 }
