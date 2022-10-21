@@ -1,15 +1,9 @@
 class Solution {
-    public int singleNumber(int[] A) 
+    public int singleNumber(int[] nums) 
     {
-        
-       Set<Integer> s = new HashSet<Integer>();
-	    for (int i: A)
-        {
-	    	if(!s.add(i))
-            {
-	    		s.remove(i);
-	    	}
-	    }
-	    return s.iterator().next();
+        int sum=0;
+        for(int i=0;i<nums.length;i++)
+            sum^=nums[i];
+        return sum;
     }
 }
