@@ -6,6 +6,5 @@ class Solution:
         while(x > rev):
             rev=rev*10 + x%10
             x=x//10
-        if x == rev or x==rev//10:
-            return True
-        return False
+        return x == rev or x==rev//10
+            
