@@ -9,10 +9,12 @@ class Solution:
             'D': 500,
             'M': 1000
         }
-        s= s.replace('IV','IIII').replace('IX','VIIII')
-        s= s.replace('XL','XXXX').replace('XC','LXXXX')
-        s= s.replace('CD','CCCC').replace('CM','DCCCC')
+        
         res=0
-        for i in s:
-            res+=Roman[i]
-        return res
+        for i in range(0,len(s)-1):
+            if Roman[s[i]]< Roman[s[i+1]]:
+                res-=Roman[s[i]]
+            else:
+                res+=Roman[s[i]]
+        return res+ Roman[s[-1]]    
+        
