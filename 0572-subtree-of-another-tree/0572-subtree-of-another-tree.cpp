@@ -11,21 +11,35 @@
  */
 class Solution {
 public:
-    bool isSubtree(TreeNode* s, TreeNode* t){
-    if(!t)
-        return true;
-    if(!s)
-        return false;
-    if(sameTree(s,t))
-        return true;
-    return isSubtree(s->left,t) || isSubtree(s->right,t); 
-}
-bool sameTree(TreeNode* s, TreeNode* t)
-{
-    if(!s && !t)
-        return true;
-    if(s && t && s->val==t->val)
-        return sameTree(s->left,t->left) && sameTree(s->right,t->right);
-    return false;
-}
+    bool isSubtree(TreeNode* root, TreeNode* subRoot) {
+        
+        if(root == NULL && subRoot == NULL)
+            return true;
+        else if (root == NULL && subRoot != NULL)
+            return false;
+        else if (root != NULL && subRoot == NULL)
+            return false;
+
+
+        if(root->val == subRoot->val)
+            return (isIdentical(root->left, subRoot->left) && isIdentical(root->right, subRoot->right)) || isSubtree(root->left, subRoot) || isSubtree(root->right, subRoot);
+        else
+            return isSubtree(root->left, subRoot) || isSubtree(root->right, subRoot);
+
+    }
+private:
+    bool isIdentical(TreeNode* root, TreeNode* head) {
+        if(root == NULL && head == NULL)
+            return true;
+        else if(root == NULL && head != NULL)
+            return false;
+        else if(root != NULL && head == NULL)
+            return false;
+        
+        if(root->val == head->val)
+            return isIdentical(root->left, head->left) && isIdentical(root->right, head->right);
+        else
+            return false;
+
+    }
 };
