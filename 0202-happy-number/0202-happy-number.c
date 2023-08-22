@@ -1,24 +1,17 @@
-class Solution {
-    public boolean isHappy(int n) {
-        int slow = n;
-        int fast = n;
-        do {
-            slow = findSquare(slow);
-            fast = findSquare(findSquare(fast));
-        }while(slow!=fast);
-        if(slow == 1)
-            return true;
-        return false;
-    }
-    public int findSquare(int n)
+bool isHappy(int n){
+    while(1)
     {
-        int ans=0;
-        while(n>0)
+        int sum =0;
+        while(n)
         {
-            int rem = n % 10;
-            ans += rem * rem;
+            sum= sum + (n%10)*(n%10);
             n=n/10;
         }
-        return ans;
+        n = sum;
+        if(n == 1)
+            return true;
+        if(n == 37)
+            return false;
     }
+    return false;
 }
