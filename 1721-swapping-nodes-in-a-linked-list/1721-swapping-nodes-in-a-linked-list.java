@@ -13,7 +13,6 @@ class Solution {
         if(head == null) {
             return head;
         }
-        
         ListNode dummy = new ListNode(0);
         dummy.next = head;
         ListNode slow = dummy;
