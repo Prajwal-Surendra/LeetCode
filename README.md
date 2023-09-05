@@ -8,4 +8,4 @@ The repository follows a folder-based structure:
 
 - **Folder 1 Name**: Contains LeetCode question and their solutions.
   - `README.md` : The question statement for Problem 1.
-  - `solution1.py` (or `solution1.java`): The solution for Problem 1.
+  - `solution1.py` (or `solution1.java`): The solutions for the problem statement.
