@@ -3,7 +3,7 @@ public:
     vector<vector<int>> merge(vector<vector<int>>& in) {
         vector<vector<int>> v;
 
-        int s=0,e=0,n=in.size();
+        int n=in.size();
 
         sort(in.begin(),in.end());
         for(int i=0;i<n;i++){
